@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 //To store all the links passwords etc.
 require("dotenv").config();
 
@@ -14,7 +15,7 @@ const taskrouter = require("./routers/taskRouter");
 const PORT = process.env.PORT || 4000;
 
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(taskrouter);
